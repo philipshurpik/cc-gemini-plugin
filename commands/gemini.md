@@ -86,7 +86,7 @@ gemini "<TASK>" --sandbox --output-format text --approval-mode yolo 2>&1
 | `-o` / `--output-format` | Output: `text`, `json`, `stream-json` |
 | `-m` / `--model` | Model selection |
 | `--include-directories` | Add directories for context |
-| `--approval-mode` | Tool approval: `default`, `auto_edit`, `yolo`, `plan` |
+| `--approval-mode` | Tool approval: `default`, `auto_edit`, `yolo` |
 | `--yolo` / `-y` | Auto-approve (**deprecated**, use `--approval-mode yolo`) |
 | `-s` / `--sandbox` | Run in sandboxed environment |
 | `-r` / `--resume` | Resume previous session |
