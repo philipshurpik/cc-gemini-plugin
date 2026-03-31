@@ -50,19 +50,16 @@ Claude can spawn `gemini-agent` automatically for deep exploration tasks.
 
 ```bash
 # Basic
-gemini "<PROMPT>" --output-format text --approval-mode yolo 2>&1
+gemini "<PROMPT>" --sandbox --output-format text --approval-mode yolo 2>&1
 
 # With model
-gemini "<PROMPT>" -m gemini-3-flash --output-format text --approval-mode yolo 2>&1
+gemini "<PROMPT>" -m gemini-3-flash --sandbox --output-format text --approval-mode yolo 2>&1
 
 # With directory context
-gemini "<PROMPT>" --include-directories src,lib --output-format text --approval-mode yolo 2>&1
+gemini "<PROMPT>" --include-directories src,lib --sandbox --output-format text --approval-mode yolo 2>&1
 
 # With file context (piped)
-cat src/**/*.ts | gemini "<PROMPT>" --output-format text --approval-mode yolo 2>&1
-
-# With sandbox
-gemini "<PROMPT>" --sandbox --output-format text --approval-mode yolo 2>&1
+cat src/**/*.ts | gemini "<PROMPT>" --sandbox --output-format text --approval-mode yolo 2>&1
 ```
 
 ### Key Flags

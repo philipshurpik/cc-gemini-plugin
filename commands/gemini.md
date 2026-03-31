@@ -49,32 +49,27 @@ Parse arguments to extract:
 
 **Basic (default model):**
 ```bash
-gemini "<TASK>" --output-format text --approval-mode yolo 2>&1
+gemini "<TASK>" --sandbox --output-format text --approval-mode yolo 2>&1
 ```
 
 **With model override:**
 ```bash
-gemini "<TASK>" -m <MODEL> --output-format text --approval-mode yolo 2>&1
+gemini "<TASK>" -m <MODEL> --sandbox --output-format text --approval-mode yolo 2>&1
 ```
 
 **With file context (piped):**
 ```bash
-cat <FILES> | gemini "<TASK>" --output-format text --approval-mode yolo 2>&1
+cat <FILES> | gemini "<TASK>" --sandbox --output-format text --approval-mode yolo 2>&1
 ```
 
 **With directory context:**
 ```bash
-gemini "<TASK>" --include-directories <DIRS> --output-format text --approval-mode yolo 2>&1
+gemini "<TASK>" --include-directories <DIRS> --sandbox --output-format text --approval-mode yolo 2>&1
 ```
 
 **Combined (model + directories):**
 ```bash
-gemini "<TASK>" -m <MODEL> --include-directories <DIRS> --output-format text --approval-mode yolo 2>&1
-```
-
-**With sandbox:**
-```bash
-gemini "<TASK>" --sandbox --output-format text --approval-mode yolo 2>&1
+gemini "<TASK>" -m <MODEL> --include-directories <DIRS> --sandbox --output-format text --approval-mode yolo 2>&1
 ```
 
 ### Flag Reference
@@ -100,49 +95,51 @@ gemini "<TASK>" --sandbox --output-format text --approval-mode yolo 2>&1
 ```
 /gemini what is 2+2
 ```
-→ `gemini "what is 2+2" --output-format text --approval-mode yolo 2>&1`
+→ `gemini "what is 2+2" --sandbox --output-format text --approval-mode yolo 2>&1`
 
 ### Architecture analysis
 ```
 /gemini explain the architecture of this codebase
 ```
-→ `gemini "explain the architecture of this codebase" --output-format text --approval-mode yolo 2>&1`
+→ `gemini "explain the architecture of this codebase" --sandbox --output-format text --approval-mode yolo 2>&1`
 
 ### With directory context
 ```
 /gemini --dirs src,lib analyze the module structure
 ```
-→ `gemini "analyze the module structure" --include-directories src,lib --output-format text --approval-mode yolo 2>&1`
+→ `gemini "analyze the module structure" --include-directories src,lib --sandbox --output-format text --approval-mode yolo 2>&1`
 
 ### With file context
 ```
 /gemini --files "src/**/*.ts" summarize the main modules
 ```
-→ `cat src/**/*.ts | gemini "summarize the main modules" --output-format text --approval-mode yolo 2>&1`
+→ `cat src/**/*.ts | gemini "summarize the main modules" --sandbox --output-format text --approval-mode yolo 2>&1`
 
 ### With model override
 ```
 /gemini --model gemini-3-flash what does this function do
 ```
-→ `gemini "what does this function do" -m gemini-3-flash --output-format text --approval-mode yolo 2>&1`
+→ `gemini "what does this function do" -m gemini-3-flash --sandbox --output-format text --approval-mode yolo 2>&1`
 
 ### Security review with Pro model
 ```
 /gemini --model gemini-3.1-pro-preview --dirs src security audit focusing on auth and injection
 ```
-→ `gemini "security audit focusing on auth and injection" -m gemini-3.1-pro-preview --include-directories src --output-format text --approval-mode yolo 2>&1`
+→ `gemini "security audit focusing on auth and injection" -m gemini-3.1-pro-preview --include-directories src --sandbox --output-format text --approval-mode yolo 2>&1`
 
 ### Documentation generation
 ```
 /gemini --dirs src generate API documentation for all endpoints
 ```
-→ `gemini "generate API documentation for all endpoints" --include-directories src --output-format text --approval-mode yolo 2>&1`
+→ `gemini "generate API documentation for all endpoints" --include-directories src --sandbox --output-format text --approval-mode yolo 2>&1`
 
 ### Sandboxed execution
 ```
 /gemini --sandbox --dirs src analyze and test the build pipeline
 ```
 → `gemini "analyze and test the build pipeline" --include-directories src --sandbox --output-format text --approval-mode yolo 2>&1`
+
+Note: `--sandbox` is enabled by default in all commands. It uses macOS Seatbelt (permissive-open profile) to restrict writes outside the project directory.
 
 ## Prompt Best Practices
 

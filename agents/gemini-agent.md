@@ -73,27 +73,22 @@ Gemini's 1M token context window makes it ideal for:
 
 **Basic headless command:**
 ```bash
-gemini "<PROMPT>" --output-format text --approval-mode yolo 2>&1
+gemini "<PROMPT>" --sandbox --output-format text --approval-mode yolo 2>&1
 ```
 
 **With model override:**
 ```bash
-gemini "<PROMPT>" -m <MODEL> --output-format text --approval-mode yolo 2>&1
+gemini "<PROMPT>" -m <MODEL> --sandbox --output-format text --approval-mode yolo 2>&1
 ```
 
 **With file context via stdin:**
 ```bash
-cat <FILES> | gemini "<PROMPT>" --output-format text --approval-mode yolo 2>&1
+cat <FILES> | gemini "<PROMPT>" --sandbox --output-format text --approval-mode yolo 2>&1
 ```
 
 **With directory context:**
 ```bash
-gemini "<PROMPT>" --include-directories src,lib --output-format text --approval-mode yolo 2>&1
-```
-
-**With sandbox:**
-```bash
-gemini "<PROMPT>" --sandbox --output-format text --approval-mode yolo 2>&1
+gemini "<PROMPT>" --include-directories src,lib --sandbox --output-format text --approval-mode yolo 2>&1
 ```
 
 **Flags explained:**

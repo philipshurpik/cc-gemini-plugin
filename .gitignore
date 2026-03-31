@@ -9,6 +9,7 @@
 *.swp
 *.swo
 *~
+.idea
 
 # Development docs
 docs/
