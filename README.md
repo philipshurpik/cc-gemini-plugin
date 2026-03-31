@@ -34,16 +34,10 @@ This plugin gives Claude Code access to Google Deepmind's Gemini CLI who's **1M 
 
 ## Installation
 
-Install via Claude Code's plugin marketplace:
+Install directly from the repository:
 
 ```
-/plugin marketplace add thepushkarp/cc-gemini-plugin
-```
-
-Or install directly from the repository:
-
-```
-/plugin install https://github.com/thepushkarp/cc-gemini-plugin
+/plugin install https://github.com/philipshurpik/cc-gemini-plugin
 ```
 
 ## Usage
